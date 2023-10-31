@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h1>setTimeout & clearTimeout</h1>
+    <div> i am div</div>
+    <button>Stop animation</button>
+</body>
+<script>
+    /*setTimeout( ()=>{
+        console.log("i am settimeout 1");
+    },3100);
+   
+    setTimeout( ()=>{
+        console.log("renuka");
+    },2000);
+
+    setTimeout( ()=>{
+        console.log("i am settimeout 2");
+    },3000);*/
+
+    const startAnimation =()=>{
+        let target = document.querySelector("div");
+        target.style.width = "500px";
+    };
+
+    let timer = setTimeout(startAnimation, 5000);
+
+    const btn = document.querySelector("button");
+
+    const stopAnimation= ()=>{
+        clearTimeout(timer);
+    }
+
+    btn.addEventListener("click",stopAnimation);
+
+</script>
+</html>

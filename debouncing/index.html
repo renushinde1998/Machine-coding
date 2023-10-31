@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing</title>
+    <style>
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid black;
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+        height: 200px;
+        
+    }
+</style>
+</head>
+<body>
+    <div>
+    <lable>Search</lable>
+    <input type="text" placeholder="type here to search" />
+    </div>
+</body>
+<script>
+    let count = 0;
+    const optFn = () =>{
+     console.log("network request count =>",count);
+     count ++;
+    }
+
+    const deboucnOptimsedFunction = (func,delay) =>{
+        let timer;
+    return function(){
+            clearTimeout(timer);
+            timer = setTimeout(func, delay);
+        };
+    };
+    
+    
+    let input = document.querySelector("input");
+    input.addEventListener("keydown", deboucnOptimsedFunction(optFn,1500));
+</script>
+</html>
